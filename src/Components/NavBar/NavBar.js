@@ -22,6 +22,8 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -64,6 +66,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function NavBar() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSideNavOpen = useSelector((state) => state.app.isSideNavOpen);
   const darkMode = useSelector((state) => state.app.darkMode);
@@ -100,10 +103,11 @@ export default function NavBar() {
             sx={{
               "@media (max-width: 500px)": {
                 marginLeft: "30px",
+                p:1
               },
             }}
           >
-            E commerce Application
+            YMart Application
           </Typography>
           {/* <Search>
                 <SearchIconWrapper>
@@ -123,9 +127,6 @@ export default function NavBar() {
                 width: "100%",
                 justifyContent: "space-around",
               },
-              // '@media (max-width: 500px)': {
-              //   display: 'none',
-              // },
             }}
           >
             {/* ShowMore For Phone Mode  */}
@@ -168,8 +169,12 @@ export default function NavBar() {
             </Tooltip>
 
             <Tooltip title="Select Location">
-              <IconButton size="large" color="inherit">
-                <LocationOnRoundedIcon
+              <IconButton
+                size="large"
+                color="inherit"
+                onClick={() => navigate("/cart")}
+              >
+                <ShoppingCartIcon
                   sx={{ width: 26, height: 26, color: "white" }}
                 />
               </IconButton>
@@ -179,8 +184,6 @@ export default function NavBar() {
               <IconButton
                 id="basic-button"
                 size="large"
-                // className='NotificationBell-button'
-                // current-count={NotificationCount()}
               >
                 <Badge badgeContent={1} color="error">
                   <NotificationsIcon

@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
         <div className="Footer-text">
           <p>
-            ©2021 by Cook With Us Pvt. Ltd. Terms & Conditions / Privacy Policy
+            ©2024 by YMart Application github/yashraj970 Pvt. Ltd. Terms & Conditions / Privacy Policy
           </p>
         </div>
       </div>
