@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
         <div className="Footer-text">
           <p>
-            ©2024 by YMart Application github/yashraj970 Pvt. Ltd. Terms & Conditions / Privacy Policy
+            ©2024 by YesMart Application github/yashraj970 Pvt. Ltd. Terms & Conditions / Privacy Policy
           </p>
         </div>
       </div>

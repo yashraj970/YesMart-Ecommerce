@@ -107,7 +107,7 @@ export default function NavBar() {
               },
             }}
           >
-            YMart Application
+            YesMart Application
           </Typography>
           {/* <Search>
                 <SearchIconWrapper>
