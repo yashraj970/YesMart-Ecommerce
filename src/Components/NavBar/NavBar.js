@@ -168,7 +168,7 @@ export default function NavBar() {
               </IconButton>
             </Tooltip>
 
-            <Tooltip title="Select Location">
+            <Tooltip title="Cart">
               <IconButton
                 size="large"
                 color="inherit"
