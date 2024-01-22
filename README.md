@@ -1,31 +1,59 @@
-# Create React App
+# E-commerce React POC
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+## Description
 
-## Deploy Your Own
+This is a proof-of-concept (POC) for an E-commerce web application built using React, Redux, and Material-UI. The application showcases various functionalities including a Product page, Single Product Detail page, Cart page, Checkout page, Success page, and navigation features like a side navigation and a navbar.
 
-Deploy your own Create React App project with Vercel.
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+- **Product Page:** Displays a list of products with relevant details such as image, title, and price.
 
-_Live Example: https://create-react-template.vercel.app/_
+- **Single Product Detail Page:** Provides detailed information about a specific product based on its unique identifier.
 
-## Available Scripts
+- **Cart Page:** Allows users to view, add, remove, and update products in the shopping cart. The cart state is managed using Redux and is stored in the local storage for persistence.
 
-In the project directory, you can run:
+- **Checkout Page:** Enables users to review their selected items, enter shipping details, and proceed to payment.
 
-### `npm start`
+- **Success Page:** Displays a confirmation message after a successful purchase.
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Navigation:** The application includes a side navigation for easy access to different pages and a navbar for quick navigation to key sections.
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **React:** The main JavaScript library used for building the user interface.
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Redux:** Manages the application state, especially for cart-related functionalities.
 
-### `npm run build`
+- **Material-UI:** Used as the CSS library to create a consistent and visually appealing design.
 
-Builds the app for production to the `build` folder.
+## Installation
 
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+1. Clone the repository:
+
+   ```bash
+   git clone
+
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd e-commerce-react-poc
+
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+4. Run the application:
+   ```bash
+   npm start
+   ```
+
+## Usage
+
+Visit http://localhost:3000 in your web browser to interact with the application.

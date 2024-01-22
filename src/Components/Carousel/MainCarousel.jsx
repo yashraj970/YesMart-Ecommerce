@@ -81,16 +81,15 @@ const MainCarousel = () => {
             margin={isNonMobile ? undefined : "0 auto"}
             maxWidth={isNonMobile ? undefined : "240px"}
           >
-            <Typography color={"white"}>-- NEW ITEMS</Typography>
-            <Typography variant={isNonMobile ? "h1" : "h2"}>Best offers </Typography>
             <Typography
               fontWeight="bold"
-              color={"text.secondary"}
+              color={"white"}
               sx={{ textDecoration: "underline" }}
               onClick={() => navigate("/products")}
             >
-              See Products
+              -- See Products
             </Typography>
+            <Typography variant={isNonMobile ? "h1" : "h2"}>Best offers </Typography>
           </Box>
         </Box>
       ))}
