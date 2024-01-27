@@ -20,7 +20,7 @@ const Footer = () => {
           <a href="" target="_blank">
             <AiOutlineTwitter />
           </a>
-          <a href="" target="_blank">
+          <a href="https://www.linkedin.com/in/yash-raj-a9037b242/" target="_blank">
             <GrLinkedinOption />
           </a>
         </div>

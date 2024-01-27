@@ -48,7 +48,14 @@ const ProductDetails = () => {
   };
 
   return (
-    <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        justifyContent: "center",
+        height: "36rem",
+      }}
+    >
       {!loading ? (
         <Box
           sx={{
