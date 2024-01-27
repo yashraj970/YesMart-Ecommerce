@@ -98,7 +98,7 @@ const ProductDetails = () => {
                 Price: {`₹ ${product.price}`}
               </Typography>
               <Typography variant="body2">
-                Details: {`${product.views} • ${product.createdAt}`}
+                Details: {`${product.details}`}
               </Typography>
               <Typography variant="caption">
                 {`Category • ${product.category}`}

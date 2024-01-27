@@ -84,8 +84,8 @@ const Products = () => {
         }}
       >
         {loading
-          ? [1, 2, 3, 4].map(() => (
-              <Box sx={{ my: 5 }}>
+          ? [1, 2, 3, 4].map((item, index) => (
+              <Box sx={{ my: 5 }} key={index}>
                 <Skeleton variant="rectangular" width={250} height={330} />
                 <Box sx={{ pt: 0.5 }}>
                   <Skeleton />
