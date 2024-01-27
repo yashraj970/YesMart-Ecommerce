@@ -99,22 +99,16 @@ const Cart = () => {
               margin: "auto",
               display: "grid",
               gridTemplateColumns: isSideNavOpen
-                ? "repeat(4, 1fr)"
-                : "repeat(5, 1fr)",
+                ? "repeat(2, 1fr)"
+                : "repeat(3, 1fr)",
               gap: "20px",
-              "@media (max-width: 1200px)": {
-                gridTemplateColumns: isSideNavOpen
-                  ? "repeat(2, 1fr)"
-                  : "repeat(3, 1fr)",
-              },
-              "@media (max-width: 800px)": {
+              "@media (max-width: 1000px)": {
                 gridTemplateColumns: isSideNavOpen
                   ? "repeat(1, 1fr)"
                   : "repeat(2, 1fr)",
               },
               "@media (max-width: 600px)": {
                 gridTemplateColumns: "repeat(1, 1fr)",
-                width: "85%",
               },
             }}
           >
@@ -138,36 +132,23 @@ const Cart = () => {
                   }}
                 >
                   <img
-                    style={{
-                      width: "210px",
-                      height: 118,
-                      borderRadius: "10px",
-                    }}
-                    alt={item.title}
-                    src={item.src}
+                    style={{ width: 250, height: 330, borderRadius: "10px" }}
+                    alt={item.name}
+                    src={item.image}
                   />
-
-                  {/* <Skeleton variant="rectangular" width={210} height={118} /> */}
 
                   <Box sx={{ pr: 2, ml: 1 }}>
                     <Typography gutterBottom variant="body2" noWrap>
-                      {item.title}
+                      {item.name}
                     </Typography>
                     <Typography display="block" variant="caption">
                       {`₹ ${item.price}`}
                     </Typography>
-                    <Typography
-                      variant="caption"
-                    >
-                      {`${item.views} • ${item.createdAt}`}
+                    <Typography variant="caption">
+                      {`Category • ${item.category}`}
                     </Typography>
                   </Box>
-                  <Box sx={{ pt: 0.5 }}>
-                    {/* <Skeleton /> */}
-                    {/* <Skeleton width="60%" /> */}
-                  </Box>
-
-                  <Box sx={{ pr: 2, ml: 1 }}>
+                  <Box sx={{ pr: 2, ml: 1,mt:1 }}>
                     <ButtonGroup variant="outlined" size="small">
                       <Button onClick={() => increaseQuantity(item)}>
                         <AddCircleIcon />

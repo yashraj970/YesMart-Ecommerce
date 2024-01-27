@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import data from "../../data.json";
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
+import { getSingleProduct } from "../../services/productServices";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const getData = () => {
+    setLoading(true);
+    getSingleProduct(id)
+      .then((data) => {
+        console.log(data.data);
+        setProduct(data.data[0]);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
-    const selectedProduct = data.find(
-      (product) => product.id === parseInt(id, 10)
-    );
-
-    setProduct(selectedProduct);
+    getData();
   }, [id]);
 
   const handleAddToCart = (item) => {
@@ -38,13 +49,15 @@ const ProductDetails = () => {
 
   return (
     <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
-      {product ? (
+      {!loading ? (
         <Box
-        sx={{
-          "@media (max-width: 600px)": {
-            height:"35rem"
-          },
-        }}>
+          sx={{
+            height: "35rem",
+            "@media (max-width: 600px)": {
+              height: "36rem",
+            },
+          }}
+        >
           <Box
             sx={{
               display: "flex",
@@ -57,9 +70,9 @@ const ProductDetails = () => {
             }}
           >
             <img
-              style={{ width: 210, height: 118, borderRadius: "10px" }}
-              alt={product.title}
-              src={product.src}
+              style={{ width: 250, height: 330, borderRadius: "10px" }}
+              alt={product.name}
+              src={product.image}
             />
 
             <Box
@@ -72,7 +85,7 @@ const ProductDetails = () => {
               }}
             >
               <Typography gutterBottom variant="body1" noWrap>
-                {product.title}
+                {product.name}
               </Typography>
               <Typography display="block" variant="body2">
                 Price: {`₹ ${product.price}`}
@@ -80,9 +93,12 @@ const ProductDetails = () => {
               <Typography variant="body2">
                 Details: {`${product.views} • ${product.createdAt}`}
               </Typography>
+              <Typography variant="caption">
+                {`Category • ${product.category}`}
+              </Typography>
             </Box>
           </Box>
-          <Box sx={{ pr: 2, ml: 1,mt:3 }}>
+          <Box sx={{ pr: 2, ml: 1, mt: 3 }}>
             <Button
               variant="contained"
               sx={{

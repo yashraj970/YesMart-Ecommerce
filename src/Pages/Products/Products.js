@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { Button, Skeleton } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import { Link as RouterLink } from "react-router-dom";
-import data from "../../data.json";
+import { getProducts } from "../../services/productServices";
 
 const Products = () => {
-  const [meals, setMeals] = useState(data);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
   const isSideNavOpen = useSelector((state) => state.app.isSideNavOpen);
   const darkMode = useSelector((state) => state.app.darkMode);
@@ -36,6 +37,23 @@ const Products = () => {
     localStorage.setItem("cart", JSON.stringify(cartData));
   };
 
+  const getData = () => {
+    setLoading(true);
+    getProducts()
+      .then((response) => {
+        console.log(response.data);
+        setProducts(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div
       style={{
@@ -52,15 +70,10 @@ const Products = () => {
           margin: "auto",
           display: "grid",
           gridTemplateColumns: isSideNavOpen
-            ? "repeat(4, 1fr)"
-            : "repeat(5, 1fr)",
+            ? "repeat(2, 1fr)"
+            : "repeat(3, 1fr)",
           gap: "20px",
-          "@media (max-width: 1200px)": {
-            gridTemplateColumns: isSideNavOpen
-              ? "repeat(2, 1fr)"
-              : "repeat(3, 1fr)",
-          },
-          "@media (max-width: 800px)": {
+          "@media (max-width: 1000px)": {
             gridTemplateColumns: isSideNavOpen
               ? "repeat(1, 1fr)"
               : "repeat(2, 1fr)",
@@ -70,65 +83,70 @@ const Products = () => {
           },
         }}
       >
-        {meals.length > 0 &&
-          meals.map((item, index) => (
-            <Box
-              key={index}
-              sx={{
-                width: 210,
-                marginRight: 0.5,
-                my: 5,
-                cursor: "pointer",
-                transition: "transform 0.3s",
-                "&:hover": {
-                  transform: "scale(1.1)",
-                },
-                "@media (max-width: 500px)": {
-                  margin: "auto",
+        {loading
+          ? [1, 2, 3, 4].map(() => (
+              <Box sx={{ my: 5 }}>
+                <Skeleton variant="rectangular" width={250} height={330} />
+                <Box sx={{ pt: 0.5 }}>
+                  <Skeleton />
+                  <Skeleton width="60%" />
+                </Box>
+              </Box>
+            ))
+          : products.length > 0 &&
+            products.map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  width: 210,
                   my: 5,
-                },
-              }}
-            >
-              <img
-                style={{ width: 210, height: 118, borderRadius: "10px" }}
-                alt={item.title}
-                src={item.src}
-              />
-
-              <Box sx={{ pr: 2, ml: 1 }}>
-                <Typography gutterBottom variant="body2" noWrap>
-                  {item.title}
-                </Typography>
-                <Typography display="block" variant="caption">
-                  {`₹ ${item.price}`}
-                </Typography>
-                <Typography
-                  variant="caption"
-                >
-                  {`${item.views} • ${item.createdAt}`}
-                </Typography>
-              </Box>
-              <Box sx={{ pt: 0.5 }}>
-              </Box>
-              <RouterLink
-                to={`/dressespage/${item.id}`}
-                style={{ textDecoration: "none" }}
+                  cursor: "pointer",
+                  transition: "transform 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.1)",
+                  },
+                  "@media (max-width: 500px)": {
+                    margin: "auto",
+                    my: 5,
+                  },
+                }}
               >
-                <Button sx={{ fontSize: "13px" }} color="secondary">
-                  Product Details
-                </Button>
-              </RouterLink>
-              <Box sx={{ pr: 2, ml: 1 }}>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  onClick={() => handleAddToCart(item)}
+                <img
+                  style={{ width: 250, height: 330, borderRadius: "10px" }}
+                  alt={item.name}
+                  src={item.image}
+                />
+
+                <Box sx={{ pr: 2, ml: 1 }}>
+                  <Typography gutterBottom variant="body2" noWrap>
+                    {item.name}
+                  </Typography>
+                  <Typography display="block" variant="caption">
+                    {`₹ ${item.price}`}
+                  </Typography>
+                  <Typography variant="caption">
+                    {`Category • ${item.category}`}
+                  </Typography>
+                </Box>
+                <RouterLink
+                  to={`/dressespage/${item.id}`}
+                  style={{ textDecoration: "none" }}
                 >
-                  Add to Cart
-                </Button>
+                  <Button sx={{ fontSize: "13px" }} color="secondary">
+                    Product Details
+                  </Button>
+                </RouterLink>
+                <Box sx={{ pr: 2, ml: 1 }}>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={() => handleAddToCart(item)}
+                  >
+                    Add to Cart
+                  </Button>
+                </Box>
               </Box>
-            </Box>
-          ))}
+            ))}
       </Grid>
       <ToastContainer />
     </div>
