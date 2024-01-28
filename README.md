@@ -33,7 +33,7 @@ To run the project locally, follow these steps:
 2. Navigate to the project directory:
 
    ```bash
-   cd e-commerce-react-poc
+   cd YesMart-Ecommerce
 
    ```
 
@@ -63,4 +63,4 @@ Yash Raj
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
