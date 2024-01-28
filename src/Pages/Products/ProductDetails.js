@@ -53,7 +53,6 @@ const ProductDetails = () => {
         display: "flex",
         width: "100%",
         justifyContent: "center",
-        height: "36rem",
       }}
     >
       {!loading ? (
@@ -61,7 +60,8 @@ const ProductDetails = () => {
           sx={{
             height: "35rem",
             "@media (max-width: 600px)": {
-              height: "36rem",
+              height: "100%",
+              mb: 4,
             },
           }}
         >
@@ -84,10 +84,12 @@ const ProductDetails = () => {
 
             <Box
               sx={{
+                width: "600px",
                 pr: 2,
                 ml: 1,
                 "@media (max-width: 600px)": {
                   width: "300px",
+                  height: "110%",
                 },
               }}
             >

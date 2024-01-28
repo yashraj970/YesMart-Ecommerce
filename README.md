@@ -1,32 +1,27 @@
-# E-commerce React POC
+# YesMart E-commerce Project
 
 ## Description
 
-This is a proof-of-concept (POC) for an E-commerce web application built using React, Redux, and Material-UI. The application showcases various functionalities including a Product page, Single Product Detail page, Cart page, Checkout page, Success page, and navigation features like a side navigation and a navbar.
+Welcome to my E-commerce platform, a feature-rich web application built using React, Redux, and Material UI. This project showcases my skills in front-end development, UI/UX design, and state management.
 
 ## Features
 
-- **Product Page:** Displays a list of products with relevant details such as image, title, and price.
+- **Sleek Components:** Utilize a sleek Navbar, Side Navigation, and a dynamic Carousel on the Home page for an engaging user experience.
+- **Responsive Design:** Ensured full responsiveness for all devices, providing a seamless and enjoyable experience across various screen sizes.
+- **Navigation:** Leveraged React Router for smooth navigation between Home, Product, Cart, Checkout, Payment, and Success pages.
+- **API Integration:** Integrated Axios for seamless API calls, fetching product details dynamically for an up-to-date product catalog.
+- **Cart Management:** Developed a user-friendly Cart page, allowing customers to modify quantities, view total prices, and manage their shopping carts efficiently.
+- **Checkout Process:** Implemented a multi-step Checkout process with address entry, payment options, and a final success page for a seamless purchasing journey.
+- **Dark and Light Mode:** Added a feature to switch between dark and light mode to enhance user experience and accommodate different preferences.
+- **State Management:** Utilized Redux for robust state management, ensuring data consistency and optimizing performance across components.
 
-- **Single Product Detail Page:** Provides detailed information about a specific product based on its unique identifier.
+## Live Demo
 
-- **Cart Page:** Allows users to view, add, remove, and update products in the shopping cart. The cart state is managed using Redux and is stored in the local storage for persistence.
+Check out the live project [here](https://ecommerce-web-three-nu.vercel.app/).
 
-- **Checkout Page:** Enables users to review their selected items, enter shipping details, and proceed to payment.
+## Getting Started
 
-- **Success Page:** Displays a confirmation message after a successful purchase.
-
-- **Navigation:** The application includes a side navigation for easy access to different pages and a navbar for quick navigation to key sections.
-
-## Technologies Used
-
-- **React:** The main JavaScript library used for building the user interface.
-
-- **Redux:** Manages the application state, especially for cart-related functionalities.
-
-- **Material-UI:** Used as the CSS library to create a consistent and visually appealing design.
-
-## Installation
+To run the project locally, follow these steps:
 
 1. Clone the repository:
 
@@ -54,6 +49,18 @@ This is a proof-of-concept (POC) for an E-commerce web application built using R
    npm start
    ```
 
-## Usage
+Feel free to explore the code and customize it according to your needs!
 
-Visit http://localhost:3000 in your web browser to interact with the application.
+## Technologies Used
+
+- React
+- Redux
+- Material UI
+
+## Author
+
+Yash Raj
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
