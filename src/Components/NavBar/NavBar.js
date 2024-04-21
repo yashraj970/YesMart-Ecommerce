@@ -78,7 +78,9 @@ export default function NavBar() {
           sx={{
             "@media (max-width: 500px)": {
               flexDirection: "column",
+              height: "100%",
             },
+            height: "4.4rem",
           }}
         >
           <IconButton
@@ -103,7 +105,7 @@ export default function NavBar() {
             sx={{
               "@media (max-width: 500px)": {
                 marginLeft: "30px",
-                p:1
+                p: 1,
               },
             }}
           >
@@ -123,6 +125,7 @@ export default function NavBar() {
             sx={{
               display: "flex",
               alignItems: "center",
+              gap: 1,
               "@media (max-width: 500px)": {
                 width: "100%",
                 justifyContent: "space-around",
@@ -181,10 +184,7 @@ export default function NavBar() {
             </Tooltip>
 
             <Tooltip title="Notifications">
-              <IconButton
-                id="basic-button"
-                size="large"
-              >
+              <IconButton id="basic-button" size="large">
                 <Badge badgeContent={1} color="error">
                   <NotificationsIcon
                     sx={{ width: 25, height: 25, color: "white" }}
